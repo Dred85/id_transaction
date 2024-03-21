@@ -10,4 +10,4 @@ def get_json():
         return json.load(file)
 
 
-print(get_json())
+# print(get_json())
