@@ -6,7 +6,7 @@ def get_json():
     """
     Получем дынные из json файла
     """
-    with open(os.path.join("id_transactions", "data", "operations.json")) as file:
+    with open('operations.json', 'r', encoding="utf-8") as file:
         return json.load(file)
 
 
