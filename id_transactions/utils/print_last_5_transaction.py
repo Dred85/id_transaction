@@ -4,6 +4,9 @@ from get_json import get_json
 
 
 def format_operation(date, description, source, destination, amount, currency):
+    """
+    Formats operation string
+    """
     formatted_date = datetime.datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f").strftime('%d.%m.%Y')
 
     if 'счет' in source.lower():
@@ -32,6 +35,7 @@ def print_last_5_operations(operations):
                                operation.get('to', ''), operation['operationAmount']['amount'],
                                operation['operationAmount']['currency']))
         print()
+
 
 operations = get_json()
 
