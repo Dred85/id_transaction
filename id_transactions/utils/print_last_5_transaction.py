@@ -27,8 +27,11 @@ def format_operation(date, description, source, destination, amount, currency):
 
 
 def print_last_5_operations(operations):
-    sorted_operations = sorted(operations, key=lambda x: datetime.datetime.strptime(x['date'], "%Y-%m-%dT%H:%M:%S.%f"),
-                               reverse=True)
+    """
+    Prints last 5 operations
+    """
+    sorted_operations = sorted(operations, key=lambda x: datetime.datetime.strptime(x['date'], "%Y-%m-%dT%H:%M:%S.%f"), reverse=True)
+
 
     for operation in sorted_operations[:5]:
         print(format_operation(operation['date'], operation['description'], operation.get('from', ''),
@@ -40,3 +43,4 @@ def print_last_5_operations(operations):
 operations = get_json()
 
 print(print_last_5_operations(operations))
+
