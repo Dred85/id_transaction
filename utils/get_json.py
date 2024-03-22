@@ -9,7 +9,7 @@ def get_json():
     with open('C:\\Users\\DRED\\PycharmProject\\id_transactions\\data\\operations.json', 'r', encoding="utf-8") as file:
         return json.load(file)
 
-print(get_json())
+# print(get_json())
 
 
 

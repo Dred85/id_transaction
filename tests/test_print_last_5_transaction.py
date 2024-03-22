@@ -1,48 +1,33 @@
-from utils.print_last_5_transaction import format_operation
+from utils.print_last_5_transaction import print_last_5_operations
+from utils.get_json import get_json
 import pytest
 
 # Создаем фикстуру, которая запускается перед каждым тестом
 @pytest.fixture
 def coll(): # имя фикстуры
-    return [
-  {
-    "id": 441945886,
-    "state": "EXECUTED",
-    "date": "2019-08-26T10:50:58.294041",
-    "operationAmount": {
-      "amount": "31957.58",
-      "currency": {
-        "name": "руб.",
-        "code": "RUB"
-      }
-    },
-    "description": "Перевод организации",
-    "from": "Maestro 1596837868705199",
-    "to": "Счет 64686473678894779589"
-  },
-  {
-    "id": 41428829,
-    "state": "EXECUTED",
-    "date": "2019-07-03T18:35:29.512364",
-    "operationAmount": {
-      "amount": "8221.37",
-      "currency": {
-        "name": "USD",
-        "code": "USD"
-      }
-    },
-    "description": "Перевод организации",
-    "from": "MasterCard 7158300734726758",
-    "to": "Счет 35383033474447895560"
-  }]
+    return get_json()
+
+expected_output_sort = """08.12.2019 Открытие вклада
+открытие нового счета -> Счет **5907
+41096.24 USD
+
+07.12.2019 Перевод организации
+Visa Classic 2842 87** **** 9012 -> Счет **3655
+48150.39 USD
+
+03.12.2019 Перевод с карты на карту
+MasterCard 1796 81** **** 9527 -> Visa Classic 7699 85** **** 9288
+17628.50 USD
+
+19.11.2019 Перевод организации
+Maestro 7810 84** **** 5568 -> Счет **2869
+30153.72 руб.
+
+13.11.2019 Перевод со счета на счет
+Счет **9794 -> Счет **8125
+62814.53 руб."""
 
 
 
-def test_format_operation(coll):
-    assert format_operation(coll) == '13.11.2019 Перевод со счета на счет\
-                                              Счет ** 9794 -> Счет ** 8125\
-                                              31957.58 руб.'
-
-
-# def test_print_last_5_operations():
-#     pass
+def test_print_last_5_operations(coll):
+    assert print_last_5_operations(get_json()) == expected_output_sort
