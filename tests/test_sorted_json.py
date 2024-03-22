@@ -1,11 +1,13 @@
-from utils.print_last_5_transaction import print_last_5_operations
+from utils.sorted_json import sorted_json
 from utils.get_json import get_json
 import pytest
 
+
 # Создаем фикстуру, которая запускается перед каждым тестом
 @pytest.fixture
-def coll(): # имя фикстуры
+def coll():  # имя фикстуры
     return get_json()
+
 
 expected_output_sort = """08.12.2019 Открытие вклада
 открытие нового счета -> Счет **5907
@@ -28,6 +30,5 @@ Maestro 7810 84** **** 5568 -> Счет **2869
 62814.53 руб."""
 
 
-
 def test_print_last_5_operations(coll):
-    assert print_last_5_operations(get_json()) == expected_output_sort
+    assert sorted_json(coll) == expected_output_sort
