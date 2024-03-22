@@ -15,7 +15,8 @@ def format_operation(date, description, source, destination, amount, currency):
     elif source == '':
         masked_source = 'открытие нового счета'
     else:
-        masked_source = ' '.join(source.split()[:-1]) + ' ' + source.split()[-1][:4] + ' ' + source.split()[-1][4:6] + '**' + ' ' + '****' + ' ' + source.split()[-1][-4:]
+        masked_source = ' '.join(source.split()[:-1]) + ' ' + source.split()[-1][:4] + ' ' + source.split()[-1][4:6] + \
+                        '**' + ' ' + '****' + ' ' + source.split()[-1][-4:]
 
     # форматирование приемника денег (to)
     if 'счет' in destination.lower():
@@ -23,7 +24,8 @@ def format_operation(date, description, source, destination, amount, currency):
     elif destination == '':
         masked_destination = 'закрытие счета'
     else:
-        masked_destination = ' '.join(destination.split()[:-1]) + ' ' + destination.split()[-1][:4] + ' ' + destination.split()[-1][4:6] + '**' + ' ' + '****' + ' ' + destination.split()[-1][-4:]
+        masked_destination = ' '.join(destination.split()[:-1]) + ' ' + destination.split()[-1][:4] + ' ' + \
+                             destination.split()[-1][4:6] + '**' + ' ' + '****' + ' ' + destination.split()[-1][-4:]
 
     formatted_amount = f'{amount} {currency["name"]}'
 
@@ -36,10 +38,9 @@ def print_last_5_operations(operations):
     """
     Prints last 5 operations
     """
-
-    # sorted_operations = sorted(operations, key=lambda x: datetime.datetime.strptime(x['date'], "%Y-%m-%dT%H:%M:%S.%f"), reverse=True)
-    sorted_operations = operations
-
+    sorted_operations = sorted(operations,
+                               key=lambda x: datetime.datetime.strptime(x.get('date', '1900-08-26T10:50:58.294041'),
+                                                                        "%Y-%m-%dT%H:%M:%S.%f"), reverse=True)
 
     for operation in sorted_operations[:5]:
         print(format_operation(operation['date'], operation['description'], operation.get('from', ''),
@@ -48,7 +49,4 @@ def print_last_5_operations(operations):
         print()
 
 
-operations = get_json()
-
-print_last_5_operations(operations)
-
+print_last_5_operations(get_json())
