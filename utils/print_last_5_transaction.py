@@ -1,6 +1,6 @@
 import datetime
 
-from get_json import get_json
+from utils.get_json import get_json
 
 
 def format_operation(date, description, source, destination, amount, currency):
