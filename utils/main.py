@@ -12,7 +12,4 @@ def main():
                                operation['operationAmount']['currency']))
         print()
 
-    sorted_json(get_json())
-
-
 main()

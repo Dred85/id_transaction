@@ -1,7 +1,7 @@
 from utils.format_operation import format_operation
 
 
-def test_format_operation():
+def test_format_operation1():
     """
     Тестирование функции format_operation: Перевод со счета на счет
     """
@@ -16,11 +16,11 @@ def test_format_operation():
 
     assert format_operation(date, description, source, destination, amount, currency) == expected_output
 
-def test_format_operation():
+def test_format_operation2():
     """
     Тестирование функции format_operation: Перевод с карты на карту
     """
-    date = "201-12-03T10:30:00.000"
+    date = "2018-12-03T10:30:00.000"
     description = "Перевод с карты на карту"
     source = "MasterCard 1796816785869527"
     destination = "Visa Classic 7699855375169288"
@@ -31,7 +31,7 @@ def test_format_operation():
 
     assert format_operation(date, description, source, destination, amount, currency) == expected_output
 
-def test_format_operation():
+def test_format_operation3():
     """
     Тестирование функции format_operation: открытие нового счета
     """
