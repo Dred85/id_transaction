@@ -1,6 +1,6 @@
-from sorted_json import sorted_json
-from get_json import get_json
-from format_operation import format_operation
+from utils.sorted_json import sorted_json
+from utils.get_json import get_json
+from utils.format_operation import format_operation
 
 
 def main():
