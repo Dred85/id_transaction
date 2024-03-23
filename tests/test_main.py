@@ -1,7 +1,8 @@
 from utils.main import main
-from utils.sorted_json import sorted_json
+
 
 def test_main(capsys):
+    """проверяю, что вывод не пустой"""
     main()
     captured = capsys.readouterr()
     assert captured.out != ""
