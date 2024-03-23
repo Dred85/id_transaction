@@ -46,3 +46,17 @@ def test_format_operation3():
 
     assert format_operation(date, description, source, destination, amount, currency) == expected_output
 
+def test_format_operation4():
+    """
+    Тестирование функции format_operation: закрытие вклада
+    """
+    date = "2019-12-03T10:30:00.000"
+    description = "Закрытие вклада"
+    source = "Счет 19708645243227258125"
+    destination = ""
+    amount = 31957.58
+    currency = {"name": "USD"}
+
+    expected_output = '03.12.2019 Закрытие вклада\nСчет **8125 -> Закрытие вклада\n31957.58 USD'
+
+    assert format_operation(date, description, source, destination, amount, currency) == expected_output

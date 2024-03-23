@@ -26,7 +26,7 @@ def format_operation(date, description, source, destination, amount, currency):
     if 'счет' in destination.lower():
         masked_destination = 'Счет **' + destination[-4:]
     elif destination == '':
-        masked_destination = 'закрытие вклада'
+        masked_destination = 'Закрытие вклада'
     else:
         masked_destination = ' '.join(destination.split()[:-1]) + ' ' + destination.split()[-1][:4] + ' ' + \
                              destination.split()[-1][4:6] + '**' + ' ' + '****' + ' ' + destination.split()[-1][-4:]
