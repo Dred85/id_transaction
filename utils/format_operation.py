@@ -17,7 +17,7 @@ def format_operation(date, description, source, destination, amount, currency):
     if 'счет' in source.lower():
         masked_source = 'Счет **' + source[-4:]
     elif source == '':
-        masked_source = 'открытие нового счета'
+        masked_source = 'Открытие вклада'
     else:
         masked_source = ' '.join(source.split()[:-1]) + ' ' + source.split()[-1][:4] + ' ' + source.split()[-1][4:6] + \
                         '**' + ' ' + '****' + ' ' + source.split()[-1][-4:]
@@ -26,7 +26,7 @@ def format_operation(date, description, source, destination, amount, currency):
     if 'счет' in destination.lower():
         masked_destination = 'Счет **' + destination[-4:]
     elif destination == '':
-        masked_destination = 'закрытие счета'
+        masked_destination = 'Закрытие вклада'
     else:
         masked_destination = ' '.join(destination.split()[:-1]) + ' ' + destination.split()[-1][:4] + ' ' + \
                              destination.split()[-1][4:6] + '**' + ' ' + '****' + ' ' + destination.split()[-1][-4:]
