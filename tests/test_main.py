@@ -2,7 +2,7 @@ from utils.main import main
 
 
 def test_main(capsys):
-    """проверяю, что вывод не пустой"""
+    """проверяю вывод нa соответствие ТЗ"""
     main()
     # захват вывода функции main()
     captured = capsys.readouterr()
