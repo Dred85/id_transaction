@@ -1,12 +1,15 @@
+import os
+
+from config import ROOT_DIR
 from utils.sorted_json import sorted_json
 from utils.get_json import get_json
 import pytest
 
-
+path_to_file = os.path.join(ROOT_DIR, 'data', 'operations.json')
 # Создаем фикстуру, которая запускается перед каждым тестом
 @pytest.fixture
 def coll():  # имя фикстуры
-    return get_json()
+    return get_json(path_to_file)
 
 
 expected_output_sort_0 = 863064926
