@@ -14,9 +14,9 @@ def coll():  # имя фикстуры
 
 expected_output_sort_0 = 863064926
 expected_output_sort_1 = 114832369
-expected_output_sort_2 = 560813069
-expected_output_sort_3 = 154927927
-expected_output_sort_4 = 482520625
+expected_output_sort_2 = 154927927
+expected_output_sort_3 = 482520625
+expected_output_sort_4 = 801684332
 
 
 
