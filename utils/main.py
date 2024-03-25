@@ -21,4 +21,5 @@ def main():
 # Путь до файла operations.json через абсолютный путь ROOT_DIR
 path_to_file = os.path.join(ROOT_DIR, 'data', 'operations.json')
 
-main()
+if __name__ == '__main__':
+    main()
