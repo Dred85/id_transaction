@@ -6,7 +6,8 @@ def test_main(capsys):
     main()
     # захват вывода функции main()
     captured = capsys.readouterr()
-    assert captured.out == """08.12.2019 Открытие вклада
+    assert captured.out == """
+08.12.2019 Открытие вклада
 Открытие вклада -> Счет **5907
 41096.24 USD
 
