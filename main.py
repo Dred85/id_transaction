@@ -21,8 +21,8 @@ executed_operations = get_executed_only(all_operations)
 # сортируем по дате операции ближайшей к нам
 sorted_operations = sorted_json(executed_operations)
 # В цикле выводим первые пять операций и формируем вывод как по ТЗ
-five_for_formating = sorted_operations[:5]  # берем пять
-for operation in five_for_formating:  # цикл для формирования и вывода
+five_for_formating = sorted_operations[:5]
+for operation in five_for_formating:
     print(format_operation(operation['date'], operation['description'], operation.get('from', ''),
                            operation.get('to', ''), operation['operationAmount']['amount'],
                            operation['operationAmount']['currency']))
