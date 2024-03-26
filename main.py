@@ -22,9 +22,15 @@ path_to_file = os.path.join(ROOT_DIR, 'data', 'operations.json')
 all_operations = get_json(path_to_file) # все транзакции без фильтрации и сортировки
 
 executed_operations = get_executed_only(all_operations) # фильтруем по EXECUTED
+
 sorted_operations = sorted_json(executed_operations) # сортируем
+
 five_for_formating = sorted_operations[:5] # берем пять
 for operation in five_for_formating: # цикл для формирования и вывода
+    print(format_operation(operation['date'], operation['description'], operation.get('from', ''),
+                           operation.get('to', ''), operation['operationAmount']['amount'],
+                           operation['operationAmount']['currency']))
+    print()
 
 
 
