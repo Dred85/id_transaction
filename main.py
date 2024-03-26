@@ -10,7 +10,6 @@ from utils.format_operation import format_operation
 def main():
     """" Окончательный Вывод 5 ближайших к нашай дате транзакции """
 
-
     # Путь до файла operations.json через абсолютный путь ROOT_DIR
     path_to_file = os.path.join(ROOT_DIR, 'data', 'operations.json')
 
@@ -30,6 +29,7 @@ def main():
                                operation.get('to', ''), operation['operationAmount']['amount'],
                                operation['operationAmount']['currency']))
         print()
+
 
 if __name__ == '__main__':
     main()
